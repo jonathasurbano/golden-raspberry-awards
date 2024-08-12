@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GoldenRaspberryAwards" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.challenge.goldenraspberryawards.GoldenRaspberryAwardsApplication" />
+    <module name="golden-raspberry-awards" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
