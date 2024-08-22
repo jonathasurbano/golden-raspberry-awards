@@ -9,26 +9,28 @@ public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
 
-    public MovieServiceImpl(MovieRepository movieRepository) {
+    public MovieServiceImpl(MovieRepository movieRepository
+    ) {
         this.movieRepository = movieRepository;
     }
 
     @Override
     public SmallestAndLargestIntervalBetweenAwards smallestAndLargestIntervalBetweenAwards() {
 
-        List<Movie> movies = movieRepository.findAwardWinners();
-
-        List<Producer> producers = extractProducers(movies);
-
-        List<Producer> awardWinningProducers = producers.stream().filter(Producer::getReceivedMoreThanOneAward).toList();
-
-        awardWinningProducers.forEach(Producer::calcIntervals);
-
-        int theShortestIntervalBetweenTheFirstTwoAwards = calcTheShortestIntervalBetweenTheFirstTwoAwards(awardWinningProducers);
-        int theLongestIntervalBetweenTwoConsecutivePrizes = calcTheLongestIntervalBetweenTwoConsecutivePrizes(awardWinningProducers);
-
-        return getSmallestAndLargestIntervalBetweenAwards(awardWinningProducers, theShortestIntervalBetweenTheFirstTwoAwards,
-                theLongestIntervalBetweenTwoConsecutivePrizes);
+//        List<Movie> movies = movieRepository.findAwardWinners();
+//
+//        List<Producer> producers = extractProducers(movies);
+//
+//        List<Producer> awardWinningProducers = producers.stream().filter(Producer::getReceivedMoreThanOneAward).toList();
+//
+//        awardWinningProducers.forEach(Producer::calcIntervals);
+//
+//        int theShortestIntervalBetweenTheFirstTwoAwards = calcTheShortestIntervalBetweenTheFirstTwoAwards(awardWinningProducers);
+//        int theLongestIntervalBetweenTwoConsecutivePrizes = calcTheLongestIntervalBetweenTwoConsecutivePrizes(awardWinningProducers);
+//
+//        return getSmallestAndLargestIntervalBetweenAwards(awardWinningProducers, theShortestIntervalBetweenTheFirstTwoAwards,
+//                theLongestIntervalBetweenTwoConsecutivePrizes);
+        return null;
     }
 
     private SmallestAndLargestIntervalBetweenAwards getSmallestAndLargestIntervalBetweenAwards(List<Producer> awardWinningProducers,
@@ -104,7 +106,7 @@ public class MovieServiceImpl implements MovieService {
 
             for (String producersName : namesOfProducers) {
                 Producer producer = producerMap.computeIfAbsent(producersName, Producer::new);
-                producer.addYearInWhichItWonAwards(movie.getYear());
+                producer.addYearInWhichItWonAwards(movie.getYearAward());
             }
         }
 
@@ -112,7 +114,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     private List<String> extractNamesOfProducers(Movie movie) {
-        String producers = movie.getProducers().replaceAll(" and ", ",");
+        String producers = movie.getProducer().replaceAll(" and ", ",");
 
         return Arrays.stream(producers.split(",", 0)).map(String::trim).filter(n -> !n.isEmpty()).toList();
     }

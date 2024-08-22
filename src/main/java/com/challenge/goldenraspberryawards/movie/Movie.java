@@ -1,22 +1,35 @@
 package com.challenge.goldenraspberryawards.movie;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Movie {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private Integer year;
-    private String producers;
+    private Integer yearAward;
+    private String producer;
+    private String winner;
 
-    public Integer getYear() {
-        return year;
+    public Movie() {
     }
 
-    public String getProducers() {
-        return producers;
+    public Movie(Integer yearAward, String producer, String winner) {
+        this.yearAward = yearAward;
+        this.producer = producer;
+        this.winner = winner;
+    }
+
+    public Integer getYearAward() {
+        return yearAward;
+    }
+
+    public String getProducer() {
+        return producer;
     }
 
 }
