@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer yearAward;
     private String producer;

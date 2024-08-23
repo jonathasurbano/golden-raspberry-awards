@@ -9,6 +9,16 @@ public class ProducerResponse {
     private int previousWin;
     private int followingWin;
 
+    public ProducerResponse() {
+    }
+
+    public ProducerResponse(String producer, int interval, int previousWin, int followingWin) {
+        this.producer = producer;
+        this.interval = interval;
+        this.previousWin = previousWin;
+        this.followingWin = followingWin;
+    }
+
     public String getProducer() {
         return producer;
     }

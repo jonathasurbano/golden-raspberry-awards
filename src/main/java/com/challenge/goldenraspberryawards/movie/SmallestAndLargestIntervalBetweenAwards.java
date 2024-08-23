@@ -5,9 +5,19 @@ import java.util.List;
 
 public class SmallestAndLargestIntervalBetweenAwards {
 
-    private final List<ProducerResponse> min = new ArrayList<>();
+    private final List<ProducerResponse> min;
 
-    private final List<ProducerResponse> max = new ArrayList<>();
+    private final List<ProducerResponse> max;
+
+    public SmallestAndLargestIntervalBetweenAwards() {
+        min = new ArrayList<>();
+        max = new ArrayList<>();
+    }
+
+    public SmallestAndLargestIntervalBetweenAwards(List<ProducerResponse> min, List<ProducerResponse> max) {
+        this.min = min;
+        this.max = max;
+    }
 
     public List<ProducerResponse> getMin() {
         return min;
@@ -17,11 +27,4 @@ public class SmallestAndLargestIntervalBetweenAwards {
         return max;
     }
 
-    @Override
-    public String toString() {
-        return "SmallestAndLargestIntervalBetweenAwards{" +
-                "min=" + min +
-                ", max=" + max +
-                '}';
-    }
 }

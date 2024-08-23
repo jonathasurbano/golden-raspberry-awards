@@ -13,8 +13,6 @@ import java.util.List;
 
 public class DataLoader {
 
-    Logger logger = LoggerFactory.getLogger(DataLoader.class);
-
     public List<MovieCsv> loadFromCSV(Path path) throws IOException {
 
         try (Reader reader = Files.newBufferedReader(path)) {

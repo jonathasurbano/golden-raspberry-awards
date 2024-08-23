@@ -3,16 +3,10 @@ package com.challenge.goldenraspberryawards.movie;
 import com.opencsv.bean.CsvBindByName;
 
 
-public class MovieCsv extends CsvBean {
+public class MovieCsv {
 
     @CsvBindByName
     private Integer year;
-
-    @CsvBindByName
-    private String title;
-
-    @CsvBindByName
-    private String studios;
 
     @CsvBindByName
     private String producers;
@@ -24,14 +18,6 @@ public class MovieCsv extends CsvBean {
         return year;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getStudios() {
-        return studios;
-    }
-
     public String getProducers() {
         return producers;
     }
@@ -40,9 +26,4 @@ public class MovieCsv extends CsvBean {
         return winner;
     }
 
-    @Override
-    public String toString() {
-        return "MovieCsv{" + "year=" + year + ", title='" + title + '\'' + ", studios='" + studios + '\''
-                + ", producers='" + producers + '\'' + ", winner='" + winner + '\'' + '}';
-    }
 }

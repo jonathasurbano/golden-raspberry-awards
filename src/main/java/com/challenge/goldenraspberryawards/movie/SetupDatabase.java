@@ -11,11 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class Setup {
+public class SetupDatabase {
 
     private final MovieRepository movieRepository;
 
-    public Setup(MovieRepository movieRepository) {
+    public SetupDatabase(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
@@ -41,7 +41,7 @@ public class Setup {
             List<String> producers = extractNamesOfProducers(movieCsv.getProducers());
 
             for (String producerName : producers) {
-                Movie movie = new Movie( movieCsv.getYear(), producerName, movieCsv.getWinner());
+                Movie movie = new Movie(movieCsv.getYear(), producerName, movieCsv.getWinner());
                 movieRepository.save(movie);
             }
         }
